@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Purchase Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+<body>
+    <nav>
+        <div class="Heading">
+        <div class="brand"><h1>Car Purchase Prediction </h1></div>
+            <ul class="menu">
+                <span id="Haboutus"><a href="#about">About Us</a></span>
+            </ul>
+        </div>
+        
+    </nav>
+    <form action="{{url_for('predict')}}", method="post" id="calculate">
+        <div class="inputBox">
+            <input type ='number' required="required" name="userid">
+            <span>User ID</span>
+        </div>
+        <div  id="Gender">  
+        <span>GENDER:</span>
+        <span id="maleG">
+        <input type="radio" name = "gender" value="Male" required="required"> Male
+        </span> 
+
+        <span id="femaleG">
+        <input type="radio" name = "gender" value="Female" required="required" > Female
+        </span>
+        </div>
+
+    <div class="inputBox">
+        <input type ='number' required="required" name="age">
+        <span>Age</span>
+    </div>
+   
+    <div class="inputBox">
+        <input type ='number' required="required" name="salary">
+        <span>Annual Salary</span>
+    </div>
+    <div>
+        <button id="predict-button" class="predictBox">Predict</button>
+    </div>
+    <div class="predictionText">{{ prediction_text }}</div>
+
+</form>
+
+<br><br><br>
+ <section id="about"> </section> 
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col" >
+                <h4>About the Project</h4>
+                <ul>
+                    <li><div class="typing"><h5>Welcome to our Car Purchase Prediction project! Here, 
+                        we have created an intelligent system that assists users 
+                        in predicting their car affordability based on key details 
+                        like age, gender, and annual salary. Powered by machine learning, 
+                        our application uses a trained model to provide personalized predictions. 
+                        Explore the innovative work of our team members, and feel free to check 
+                        out the project on GitHub for more details and contributions.</h5></div></li>
+                </ul>
+            </div>
+            <div class="footer-col" id="team">
+                <h4>Team members</h4>
+                <ul>
+                    <li><a href="#">Kelvin J Anil</a></li>
+                    <li><a href="#">Sutam Chandra</a></li>
+                    <li><a href="#">Rishi raj Upadhyaya</a></li>
+                    <li><a href="#">Amish Ranjan</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" id="team1">
+                <h4>See our Project on GitHub</h4>
+                <div class="social-links">
+                    <a href="https://github.com/smartinternz02/SI-GuidedProject-600946-1697539328"><i class="fab fa-github"></i></a>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // Script for smooth scrolling to the "About Us" section
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    </script>
+</body>
+</html>
